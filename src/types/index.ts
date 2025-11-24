@@ -1,0 +1,1 @@
+export type Language = 'c' | 'cpp' | 'java' | 'javascript' | 'python';

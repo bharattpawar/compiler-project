@@ -1,0 +1,181 @@
+// Language-specific keywords and suggestions
+export const LANGUAGE_KEYWORDS = {
+  javascript: [
+    // Keywords
+    'abstract', 'arguments', 'await', 'boolean',
+    'break', 'byte', 'case', 'catch',
+    'char', 'class', 'const', 'continue',
+    'debugger', 'default', 'delete', 'do',
+    'double', 'else', 'enum', 'eval',
+    'export', 'extends', 'false', 'final',
+    'finally', 'float', 'for', 'function',
+    'goto', 'if', 'implements', 'import',
+    'in', 'instanceof', 'int', 'interface',
+    'let', 'long', 'native', 'new',
+    'null', 'package', 'private', 'protected',
+    'public', 'return', 'short', 'static',
+    'super', 'switch', 'synchronized', 'this',
+    'throw', 'throws', 'transient', 'true',
+    'try', 'typeof', 'var', 'void',
+    'volatile', 'while', 'with', 'yield',
+    // Built-in objects
+    'Array', 'Boolean', 'Date', 'Error',
+    'Function', 'JSON', 'Math', 'Number',
+    'Object', 'Promise', 'RegExp', 'String',
+    'Symbol', 'console', 'window', 'document',
+    // Common methods
+    'forEach', 'map', 'filter', 'reduce',
+    'find', 'findIndex', 'some', 'every',
+    'push', 'pop', 'shift', 'unshift',
+    'slice', 'splice', 'join', 'split',
+    'toString', 'valueOf', 'hasOwnProperty',
+    'isArray', 'isNaN', 'parseInt', 'parseFloat'
+  ],
+  
+  python: [
+    // Keywords
+    'and', 'as', 'assert', 'break',
+    'class', 'continue', 'def', 'del',
+    'elif', 'else', 'except', 'exec',
+    'finally', 'for', 'from', 'global',
+    'if', 'import', 'in', 'is',
+    'lambda', 'not', 'or', 'pass',
+    'print', 'raise', 'return', 'try',
+    'while', 'with', 'yield', 'async',
+    'await', 'nonlocal', 'True', 'False',
+    'None', 'self', '__init__', '__str__',
+    // Built-in functions
+    'abs', 'all', 'any', 'bin',
+    'bool', 'bytearray', 'bytes', 'callable',
+    'chr', 'classmethod', 'compile', 'complex',
+    'delattr', 'dict', 'dir', 'divmod',
+    'enumerate', 'eval', 'exec', 'filter',
+    'float', 'format', 'frozenset', 'getattr',
+    'globals', 'hasattr', 'hash', 'help',
+    'hex', 'id', 'input', 'int',
+    'isinstance', 'issubclass', 'iter', 'len',
+    'list', 'locals', 'map', 'max',
+    'memoryview', 'min', 'next', 'object',
+    'oct', 'open', 'ord', 'pow',
+    'property', 'range', 'repr', 'reversed',
+    'round', 'set', 'setattr', 'slice',
+    'sorted', 'staticmethod', 'str', 'sum',
+    'super', 'tuple', 'type', 'vars',
+    'zip', '__name__', '__main__', 'append',
+    'extend', 'insert', 'remove', 'pop',
+    'clear', 'index', 'count', 'sort',
+    'reverse', 'copy', 'keys', 'values',
+    'items', 'get', 'update', 'join'
+  ],
+  
+  java: [
+    // Keywords
+    'abstract', 'assert', 'boolean', 'break',
+    'byte', 'case', 'catch', 'char',
+    'class', 'const', 'continue', 'default',
+    'do', 'double', 'else', 'enum',
+    'extends', 'final', 'finally', 'float',
+    'for', 'goto', 'if', 'implements',
+    'import', 'instanceof', 'int', 'interface',
+    'long', 'native', 'new', 'package',
+    'private', 'protected', 'public', 'return',
+    'short', 'static', 'strictfp', 'super',
+    'switch', 'synchronized', 'this', 'throw',
+    'throws', 'transient', 'try', 'void',
+    'volatile', 'while', 'true', 'false',
+    'null', 'main', 'String', 'System',
+    // Common classes and methods
+    'ArrayList', 'HashMap', 'HashSet', 'List',
+    'Map', 'Set', 'Collection', 'Iterator',
+    'Object', 'Class', 'Thread', 'Runnable',
+    'Exception', 'RuntimeException', 'Error',
+    'StringBuilder', 'StringBuffer', 'Scanner',
+    'BufferedReader', 'FileReader', 'PrintWriter',
+    'FileWriter', 'IOException', 'FileNotFoundException',
+    'println', 'print', 'printf', 'out',
+    'in', 'err', 'length', 'charAt',
+    'substring', 'indexOf', 'toLowerCase', 'toUpperCase',
+    'trim', 'equals', 'equalsIgnoreCase', 'contains',
+    'startsWith', 'endsWith', 'replace', 'split',
+    'add', 'remove', 'get', 'set',
+    'size', 'isEmpty', 'clear', 'contains',
+    'put', 'keySet', 'values', 'entrySet',
+    'hasNext', 'next', 'toString', 'valueOf'
+  ],
+  
+  cpp: [
+    // Keywords
+    'alignas', 'alignof', 'and', 'and_eq',
+    'asm', 'auto', 'bitand', 'bitor',
+    'bool', 'break', 'case', 'catch',
+    'char', 'char16_t', 'char32_t', 'class',
+    'compl', 'const', 'constexpr', 'const_cast',
+    'continue', 'decltype', 'default', 'delete',
+    'do', 'double', 'dynamic_cast', 'else',
+    'enum', 'explicit', 'export', 'extern',
+    'false', 'float', 'for', 'friend',
+    'goto', 'if', 'inline', 'int',
+    'long', 'mutable', 'namespace', 'new',
+    'noexcept', 'not', 'not_eq', 'nullptr',
+    'operator', 'or', 'or_eq', 'private',
+    'protected', 'public', 'register', 'reinterpret_cast',
+    'return', 'short', 'signed', 'sizeof',
+    'static', 'static_assert', 'static_cast', 'struct',
+    'switch', 'template', 'this', 'thread_local',
+    'throw', 'true', 'try', 'typedef',
+    'typeid', 'typename', 'union', 'unsigned',
+    'using', 'virtual', 'void', 'volatile',
+    'wchar_t', 'while', 'xor', 'xor_eq',
+    // Standard library
+    'std', 'cout', 'cin', 'endl',
+    'string', 'vector', 'map', 'set',
+    'pair', 'queue', 'stack', 'list',
+    'deque', 'array', 'unordered_map', 'unordered_set',
+    'algorithm', 'iterator', 'begin', 'end',
+    'size', 'empty', 'push_back', 'pop_back',
+    'front', 'back', 'clear', 'erase',
+    'find', 'insert', 'sort', 'reverse',
+    'unique', 'lower_bound', 'upper_bound', 'binary_search',
+    'max', 'min', 'swap', 'make_pair',
+    'first', 'second', 'push', 'pop',
+    'top', 'getline', 'substr', 'length',
+    'c_str', 'at', 'reserve', 'resize',
+    'include', 'iostream', 'vector', 'string',
+    'algorithm', 'map', 'set', 'queue',
+    'stack', 'utility', 'cmath', 'climits'
+  ],
+  
+  c: [
+    // C Keywords
+    'auto', 'break', 'case', 'char',
+    'const', 'continue', 'default', 'do',
+    'double', 'else', 'enum', 'extern',
+    'float', 'for', 'goto', 'if',
+    'int', 'long', 'register', 'return',
+    'short', 'signed', 'sizeof', 'static',
+    'struct', 'switch', 'typedef', 'union',
+    'unsigned', 'void', 'volatile', 'while',
+    '_Bool', '_Complex', '_Imaginary', 'inline',
+    'restrict', '_Alignas', '_Alignof', '_Atomic',
+    '_Static_assert', '_Noreturn', '_Thread_local',
+    '_Generic', '_Pragma',
+    // Standard library functions
+    'printf', 'scanf', 'malloc', 'free',
+    'strcpy', 'strcmp', 'strlen', 'strcat',
+    'memcpy', 'memset', 'fopen', 'fclose',
+    'fread', 'fwrite', 'fprintf', 'fscanf',
+    'getchar', 'putchar', 'gets', 'puts',
+    'atoi', 'atof', 'itoa', 'abs',
+    'sqrt', 'pow', 'sin', 'cos', 'tan',
+    'log', 'exp', 'ceil', 'floor',
+    'rand', 'srand', 'time', 'clock',
+    'NULL', 'TRUE', 'FALSE', 'EOF',
+    'size_t', 'ptrdiff_t', 'FILE', 'va_list'
+  ]
+};
+
+export type Language = 'javascript' | 'python' | 'java' | 'cpp' | 'c';
+
+export const getLanguageKeywords = (language: Language): string[] => {
+  return LANGUAGE_KEYWORDS[language] || [];
+};
