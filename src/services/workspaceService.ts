@@ -47,8 +47,7 @@ const DEFAULT_CODE: Record<CompilerLanguage, string> = {
 
 class WorkspaceService {
   private workspace: Workspace;
-  private openTabs: OpenTab[] = [];
-  private activeTabId: string | null = null;
+
 
   constructor() {
     this.workspace = this.loadWorkspace();
@@ -251,7 +250,7 @@ class WorkspaceService {
       throw new Error(`"${newName}" already exists in this folder`);
     }
 
-    const oldPath = item.path;
+
     const newPath = path.substring(0, path.lastIndexOf('/') + 1) + newName;
     
     item.name = newName;
@@ -294,7 +293,6 @@ class WorkspaceService {
   }
 
   setOpenTabs(tabs: OpenTab[]): void {
-    this.openTabs = tabs;
     localStorage.setItem('vscode-open-tabs', JSON.stringify(tabs));
   }
 
@@ -307,7 +305,6 @@ class WorkspaceService {
   }
 
   setActiveTabId(tabId: string | null): void {
-    this.activeTabId = tabId;
     if (tabId) {
       localStorage.setItem('vscode-active-tab', tabId);
     } else {

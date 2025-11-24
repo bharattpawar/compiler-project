@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Terminal, X, Minus } from 'lucide-react';
+import { Terminal, X } from 'lucide-react';
 
 interface TerminalPanelProps {
   input: string;
@@ -67,10 +67,7 @@ const TerminalPanel: React.FC<TerminalPanelProps> = ({
     }
   };
 
-  const clearInput = () => {
-    onInputChange('');
-    setHistoryIndex(-1);
-  };
+
 
   if (!isVisible) return null;
 

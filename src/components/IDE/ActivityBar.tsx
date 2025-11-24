@@ -10,7 +10,7 @@ interface ActivityBarProps {
 const ActivityBar: React.FC<ActivityBarProps> = ({
   activeView,
   onViewChange,
-  isExplorerVisible
+  
 }) => {
   const iconClass = "w-5 h-5 md:w-6 md:h-6";
   const buttonClass = "w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:bg-gray-800 transition-colors duration-200 relative";

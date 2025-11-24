@@ -47,13 +47,7 @@ const OutputPanel: React.FC<OutputPanelProps> = ({
   const statusInfo = getStatusInfo();
   const StatusIcon = statusInfo.icon;
 
-  const handleCopy = () => {
-    if (output) {
-      navigator.clipboard.writeText(output);
-      showToast.success("Output copied to clipboard");
-      onCopy();
-    }
-  };
+
 
   const handleDownload = () => {
     if (output) {

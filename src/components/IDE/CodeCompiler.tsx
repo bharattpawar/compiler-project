@@ -12,17 +12,15 @@
  * □ Language mapping: Creating hello.py sets language python by extension
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { showToast } from '@/utils/toast';
-import { executeCode } from '@/services/codeExecutor';
-import { workspaceService, type VFile, type CompilerLanguage } from '@/services/workspaceService';
+import React, { useState, useEffect } from 'react';
+import { showToast } from '../../utils/toast';
+import { executeCode } from '../../services/codeExecutor';
+import { workspaceService, type VFile, type CompilerLanguage } from '../../services/workspaceService';
 
-import ActivityBar from './ActivityBar';
 import FileExplorer from './FileExplorer';
 import EditorTabs from './EditorTabs';
 import EditorPane from './EditorPane';
 import TerminalPanel from './TerminalPanel';
-import OutputPanel from './OutputPanel';
 import StatusBar from './StatusBar';
 
 const CodeCompiler: React.FC = () => {
@@ -44,12 +42,11 @@ const CodeCompiler: React.FC = () => {
   const [terminalHeight, setTerminalHeight] = useState(200); // 200px default
   const [isResizingExplorer, setIsResizingExplorer] = useState(false);
   const [isResizingTerminal, setIsResizingTerminal] = useState(false);
-  const [outputWidth, setOutputWidth] = useState(500);
-  const [isResizingOutput, setIsResizingOutput] = useState(false);
+
   const [fontSize, setFontSize] = useState(14);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [terminalVisible, setTerminalVisible] = useState(false);
-  const [outputVisible, setOutputVisible] = useState(true);
+
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const activeFile = openTabs.find(tab => tab.id === activeTabId) || null;
@@ -173,7 +170,7 @@ const CodeCompiler: React.FC = () => {
 
   // Resize handlers
   useEffect(() => {
-    if (!isResizingExplorer && !isResizingTerminal && !isResizingOutput) return;
+    if (!isResizingExplorer && !isResizingTerminal) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       e.preventDefault();
@@ -193,21 +190,13 @@ const CodeCompiler: React.FC = () => {
           setTerminalHeight(newHeight);
         }
       }
-      if (isResizingOutput) {
-        const newWidth = window.innerWidth - e.clientX;
-        if (newWidth < 200) {
-          setOutputWidth(0);
-          setOutputVisible(false);
-        } else {
-          setOutputWidth(Math.max(300, Math.min(newWidth, window.innerWidth * 0.7)));
-        }
-      }
+
     };
 
     const handleMouseUp = () => {
       setIsResizingExplorer(false);
       setIsResizingTerminal(false);
-      setIsResizingOutput(false);
+
     };
 
     document.addEventListener('mousemove', handleMouseMove);
@@ -217,7 +206,7 @@ const CodeCompiler: React.FC = () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isResizingExplorer, isResizingTerminal, isResizingOutput]);
+  }, [isResizingExplorer, isResizingTerminal]);
 
   const handleFileSelect = (file: VFile) => {
     // Get fresh file data from workspace
@@ -312,21 +301,7 @@ const CodeCompiler: React.FC = () => {
     }
   };
 
-  const handleCopyOutput = () => {
-    navigator.clipboard.writeText(output);
-    showToast.success('Output copied to clipboard');
-  };
 
-  const handleDownloadOutput = () => {
-    const blob = new Blob([output], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'output.txt';
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast.success('Output downloaded');
-  };
 
   const handleReset = () => {
     if (!activeFile) return;
@@ -484,20 +459,12 @@ const CodeCompiler: React.FC = () => {
           }
         }}
         onToggleTerminal={() => setTerminalVisible(!terminalVisible)}
-        onToggleOutput={() => {
-          if (outputVisible) {
-            setOutputWidth(0);
-            setOutputVisible(false);
-          } else {
-            setOutputWidth(500);
-            setOutputVisible(true);
-          }
-        }}
+
         onToggleSettings={() => setIsSettingsOpen(!isSettingsOpen)}
         onRun={handleRun}
         explorerVisible={explorerVisible}
         terminalVisible={terminalVisible}
-        outputVisible={outputVisible}
+
       />
       )}
 

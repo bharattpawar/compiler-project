@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useEffect } from 'react';
 import { Code2, Plus } from 'lucide-react';
-import CompilerMonacoEditor from '@/components/compilermonocoeditor';
-import type { VFile } from '@/services/workspaceService';
+import CompilerMonacoEditor from '../compilermonocoeditor';
+import type { VFile } from '../../services/workspaceService';
 import * as monaco from 'monaco-editor';
 
 interface EditorPaneProps {
@@ -19,12 +19,10 @@ const EditorPane: React.FC<EditorPaneProps> = ({
 }) => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
-  const handleEditorDidMount = useCallback((editor: monaco.editor.IStandaloneCodeEditor, monacoInstance: typeof monaco) => {
+  const handleEditorDidMount = useCallback((editor: monaco.editor.IStandaloneCodeEditor) => {
     editorRef.current = editor;
     
-    // Set up eager model sync for TypeScript/JavaScript
-    monacoInstance.languages.typescript.javascriptDefaults.setEagerModelSync(true);
-    monacoInstance.languages.typescript.typescriptDefaults.setEagerModelSync(true);
+
     
     // Add keyboard shortcuts
     editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {

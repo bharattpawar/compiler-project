@@ -9,8 +9,7 @@ import {
   Copy,
   Folder,
   FolderOpen,
-  FileText,
-  FileJson,
+  
   FileCode
 } from 'lucide-react';
 import { 
@@ -18,9 +17,9 @@ import {
   type VFile, 
   type VFolder, 
   type CompilerLanguage 
-} from '@/services/workspaceService';
-import { getLanguageFromExtension } from '@/utils/fileUtils';
-import { showToast } from '@/utils/toast';
+} from '../../services/workspaceService';
+import { getLanguageFromExtension } from '../../utils/fileUtils';
+import { showToast } from '../../utils/toast';
 
 // Language-specific icon mapping with colors
 const getLanguageIcon = (fileName: string, language?: CompilerLanguage) => {

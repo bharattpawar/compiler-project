@@ -28,6 +28,3 @@ export const logError = (message: string) => {
   showToast.error(message);
 };
 
-const logSuccess = (message: string) => {
-  showToast.success(message);
-};

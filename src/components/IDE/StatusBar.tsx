@@ -1,7 +1,6 @@
 import React from 'react';
-import { Files, Terminal, Settings, Play, Loader2, CheckCircle2, XCircle, AlertCircle, FileText } from 'lucide-react';
-import type { VFile, CompilerLanguage } from '@/services/workspaceService';
-import { getLanguageColor } from '@/utils/fileUtils';
+import { Files, Terminal, Settings, Loader2, CheckCircle2, XCircle, AlertCircle } from 'lucide-react';
+import type { VFile, CompilerLanguage } from '../../services/workspaceService';
 
 interface StatusBarProps {
   activeFile: VFile | null;
@@ -10,12 +9,10 @@ interface StatusBarProps {
   fontSize: number;
   onToggleExplorer: () => void;
   onToggleTerminal: () => void;
-  onToggleOutput: () => void;
   onToggleSettings: () => void;
   onRun: () => void;
   explorerVisible: boolean;
   terminalVisible: boolean;
-  outputVisible: boolean;
 }
 
 const StatusBar: React.FC<StatusBarProps> = ({
@@ -25,12 +22,10 @@ const StatusBar: React.FC<StatusBarProps> = ({
   fontSize,
   onToggleExplorer,
   onToggleTerminal,
-  onToggleOutput,
   onToggleSettings,
   onRun,
   explorerVisible,
-  terminalVisible,
-  outputVisible
+  terminalVisible
 }) => {
   const getRunStatus = () => {
     if (isRunning) return { 

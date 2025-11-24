@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { X, RotateCcw, Play, FileCode, FileText, FileJson, Maximize2, Minimize2 } from 'lucide-react';
 import type { VFile } from '@/services/workspaceService';
-import { getFileIconClass, getLanguageColor } from '@/utils/fileUtils';
+import { getFileIconClass } from '../../utils/fileUtils';
 
 interface EditorTabsProps {
   tabs: VFile[];

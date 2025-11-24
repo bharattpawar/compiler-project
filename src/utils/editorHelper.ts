@@ -29,7 +29,7 @@ export const createEditorDidMountHandler = (
       
       try {
         monacoInstance.languages.registerCompletionItemProvider(monacoLanguageId, {
-          provideCompletionItems: (model, position) => {
+          provideCompletionItems: (model: any, position: any) => {
             const word = model.getWordUntilPosition(position);
             const range = {
               startLineNumber: position.lineNumber,
@@ -101,7 +101,7 @@ export const createEditorDidMountHandler = (
 };
 
 export const getEditorOptions = (
-  isFullscreen: boolean,
+  _isFullscreen: boolean,
   fontSize: number = 12
 ) => ({
   minimap: { enabled: false },
